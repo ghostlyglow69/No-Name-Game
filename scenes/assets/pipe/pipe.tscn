@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbvw8k0okoij"]
+
+[ext_resource type="Texture2D" uid="uid://bn7h5ygubpgl8" path="res://addons/0x72_8x8TilesetF24.v1.png" id="1_vk0ct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mugc4"]
+atlas = ExtResource("1_vk0ct")
+region = Rect2(80, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfrkh"]
+atlas = ExtResource("1_vk0ct")
+region = Rect2(88, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3uopa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mugc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfrkh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rru6u"]
+atlas = ExtResource("1_vk0ct")
+region = Rect2(80, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p675o"]
+atlas = ExtResource("1_vk0ct")
+region = Rect2(88, 16, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylb6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rru6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p675o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Pipe" type="Node2D"]
+
+[node name="WaterFlowSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_vk0ct")
+region_enabled = true
+region_rect = Rect2(80, 20, 8, 8)
+
+[node name="PipeAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_3uopa")
+autoplay = "default"
+
+[node name="WaterFlowAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_ylb6s")
+autoplay = "default"
